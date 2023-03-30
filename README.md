@@ -2,6 +2,12 @@
 
 Tool created to assist in debugging react native applications
 
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="./example.gif" width="300" />
+  </a>
+</p>
+
 ## Installation
 
 ```sh
