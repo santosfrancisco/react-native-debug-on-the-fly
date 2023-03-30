@@ -23,7 +23,7 @@ import { DOTFProvider } from 'react-native-debug-on-the-fly';
 
 
 //...
-    <DOTFProvider>
+    <DOTFProvider enabled>
       <App />
     </DOTFProvider>
 //...
@@ -39,7 +39,7 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 import { useDOTF } from 'react-native-debug-on-the-fly';
 
 const Content = () => {
-  const { pushLog } = useDOTF();
+  const { pushLog, clear, logs } = useDOTF();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My app</Text>
@@ -63,6 +63,22 @@ const Content = () => {
   );
 };
 ```
+
+## Table of props
+
+### Provider
+
+| Property | Type      | Description                                                                                                               |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------- |
+| enabled  | `boolean` | Indicates if the tool is enabled and will receive logs. When `false`, the logs are not stored and the tool is not visible |
+
+### Hook
+
+| Property | Type                                | Description                            |
+| -------- | ----------------------------------- | -------------------------------------- |
+| logs     | `{time: string, content: string}[]` | List of logs                           |
+| pushLog  | `() => void`                        | Function that adds the log to the list |
+| clear    | `() => void`                        | Clear the log list                     |
 
 ## Contributing
 
