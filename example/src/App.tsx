@@ -30,7 +30,7 @@ const Content = () => {
 
 export default function App() {
   return (
-    <DOTFProvider>
+    <DOTFProvider enabled>
       <Content />
     </DOTFProvider>
   );
