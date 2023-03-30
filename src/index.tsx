@@ -1,7 +1,14 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { LogsWindow } from './LogsWindow';
-import type { IDOTFContext, Log } from './types';
+import type { Log } from './types';
+
+interface IDOTFContext {
+  logs: Log[];
+  pushLog: (log: string) => void;
+  toggle: () => void;
+  clear: () => void;
+}
 
 const DOTFContext = createContext<IDOTFContext>({
   logs: [],
@@ -10,9 +17,13 @@ const DOTFContext = createContext<IDOTFContext>({
   clear: () => {},
 });
 
+type DOTFProviderProps = {
+  children: React.ReactNode;
+};
+
 const to2Digits = (value: number) => (value <= 9 ? '0' + value : value);
 
-export const DOTFProvider: React.FC = ({ children }) => {
+export const DOTFProvider = ({ children }: DOTFProviderProps) => {
   const [logs, setLogs] = useState<Log[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
 
